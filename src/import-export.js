@@ -3,9 +3,11 @@ const exportContainer = document.getElementById('export-container');
 const shareUrlInput = document.getElementById('share-url');
 const closeButtons = document.querySelectorAll('.close-button');
 const copyButton = document.getElementById('copy-btn');
+const allowEditCheckbox = document.getElementById('allow-edit-checkbox');
 
-exportBtn.addEventListener('click', () => {
+function updateShareUrl() {
     const basisUrl = window.location.href.split('?')[0];
+    const allowEdit = allowEditCheckbox.checked;
     let opstellingData = [];
 
     document.querySelectorAll('#field .player').forEach(player => {
@@ -15,11 +17,18 @@ exportBtn.addEventListener('click', () => {
     });
 
     if (opstellingData.length > 0) {
-        shareUrlInput.value = `${basisUrl}?lineup=${opstellingData.join(',')}`;
+        shareUrlInput.value = `${basisUrl}?edit=${allowEdit}&lineup=${opstellingData.join(',')}`;
     } else {
-        shareUrlInput.value = basisUrl;
+        shareUrlInput.value = `${basisUrl}?edit=${allowEdit}`;
     }
+}
 
+allowEditCheckbox.addEventListener('change', () => {
+    updateShareUrl();
+});
+
+exportBtn.addEventListener('click', () => {
+    updateShareUrl();
     exportContainer.style.display = 'flex';
 });
 
@@ -31,6 +40,7 @@ closeButtons.forEach(button => {
 
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
+    const canEdit = urlParams.get('edit') !== 'false';
     const lineupData = urlParams.get('lineup');
 
     if (lineupData) {
@@ -46,8 +56,38 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    if (!canEdit) {
+        document.querySelectorAll('.player').forEach(player => {
+            player.setAttribute('draggable', 'false');
+            player.style.pointerEvents = 'none';
+        });
+        const resetBtn = document.getElementById('ResetBtn');
+        if (resetBtn) resetBtn.style.display = 'none';
+        if (exportBtn) exportBtn.style.display = 'none';
+    }
+
+    if (!canEdit) {
+    document.querySelectorAll('.player').forEach(player => {
+        player.setAttribute('draggable', 'false');
+        player.style.pointerEvents = 'none';
+    });
+    const resetBtn = document.getElementById('ResetBtn');
+    if (resetBtn) resetBtn.style.display = 'none';
+    if (exportBtn) exportBtn.style.display = 'none';
+    
+    const viewIndicator = document.getElementById('view-mode-indicator');
+    if (viewIndicator) viewIndicator.style.display = 'inline-block';
+}
 });
 
 copyButton.addEventListener('click', () => {
-    navigator.clipboard.writeText(shareUrlInput.value);
-})
+    shareUrlInput.select();
+    shareUrlInput.setSelectionRange(0, 99999);
+    
+    try {
+        document.execCommand('copy');
+    } catch (err) {
+        navigator.clipboard.writeText(shareUrlInput.value).catch(e => {});
+    }
+});

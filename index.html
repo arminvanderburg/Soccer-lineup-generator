@@ -16,6 +16,12 @@
 
         <textarea id="share-url" readonly></textarea>
 
+        <div class="share-options">
+            <label>
+                <input type="checkbox" id="allow-edit-checkbox" checked> Allow editing
+            </label>
+         </div>
+
         <div class="export-button-container">
             <button class="btn" id="copy-btn">Copy</button>
         </div>
@@ -24,11 +30,11 @@
     <div class="container">
         <div class="main-content">
             <div id="field"></div>
-
             <div class="button-container">
                 <button class="btn" id="Export">Share</button>
                 <button class="btn" id="ResetBtn">Reset</button>
             </div>
+            <a id="view-mode-indicator" style="display: none;">Read only</a>
         </div>
 
         <div class="sidebar">
