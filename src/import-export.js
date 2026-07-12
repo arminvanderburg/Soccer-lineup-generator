@@ -2,7 +2,7 @@ const exportBtn = document.getElementById('Export');
 const exportContainer = document.getElementById('export-container');
 const shareUrlInput = document.getElementById('share-url');
 const closeButtons = document.querySelectorAll('.close-button');
-const copyButton = document.querySelectorAll('Copy')
+const copyButton = document.getElementById('copy-btn');
 
 exportBtn.addEventListener('click', () => {
     const basisUrl = window.location.href.split('?')[0];
