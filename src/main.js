@@ -52,6 +52,7 @@ let touchStartY = 0;
 function touchStart(e) {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    e.target.style.transition = 'none';
 }
 
 function touchMove(e) {
@@ -60,14 +61,17 @@ function touchMove(e) {
     const touch = e.touches[0];
     
     player.style.position = 'fixed';
-    player.style.left = `${touch.clientX - player.offsetWidth / 2}px`;
-    player.style.top = `${touch.clientY - player.offsetHeight / 2}px`;
+    player.style.left = `${touch.clientX}px`;
+    player.style.top = `${touch.clientY}px`;
+    player.style.transform = 'translate(-50%, -50%)';
     player.style.zIndex = '1000';
+    player.style.transition = 'none';
 }
 
 function touchEnd(e) {
     const player = e.target;
     player.style.zIndex = '1';
+    player.style.transition = '';
     
     const touch = e.changedTouches[0];
     const fieldRect = field.getBoundingClientRect();
