@@ -134,10 +134,10 @@ body {
     z-index: 2;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-radius: 5vmin;
-    display: flex;
-    justify-content: center;
-    overflow: clip;
     display: none;
+    flex-direction: column;
+    align-items: center;
+    overflow: clip;
 }
 
 .top-bar {
@@ -163,12 +163,21 @@ body {
 }
 
 #share-url {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 80%;
-    height: 60%;
+    height: 50%;
+    margin-top: auto;
     border-radius: 10px;
     background-color: #ebebeb;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 2vmin;
+}
+
+.export-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: auto;
 }
