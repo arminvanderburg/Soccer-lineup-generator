@@ -103,3 +103,7 @@ function resetPlayer(player) {
     player.style.position = 'static';
     player.style.transform = 'none';
 }
+
+document.getElementById('ResetBtn').addEventListener('click', () => {
+    document.querySelectorAll('.player').forEach(player => resetPlayer(player));
+});
