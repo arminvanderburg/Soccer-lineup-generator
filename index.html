@@ -3,31 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lineup Generator</title>
+    <title>Soccer Lineup Generator</title>
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-
     <div class="import-export-container" id="export-container">
         <div class="top-bar">
             <a class="top-bar-text"><b>Export</b></a>
             <button class="close-button"><b>X</b></button>
         </div>
 
-        <div style="padding: 2vmin; display: flex; flex-direction: column; gap: 2vmin; width: 80%;">
-            <input type="text" id="share-url" readonly style="width: 100%; padding: 1vmin; font-size: 2vmin;">
-        </div>
+        <input type="text" id="share-url" readonly>
     </div>
 
     <div class="container">
-
         <div class="main-content">
             <div id="field" ondrop="drop(event)" ondragover="allowDrop(event)">
             </div>
 
             <div class="button-container">
                 <button class="btn" id="Export">Export</button>
-                <button class="btn" id="Import">Import</button>
             </div>
         </div>
 
@@ -52,8 +47,8 @@
                 <div class="player" draggable="true" ondragstart="drag(event)" id="p17">17</div>
             </div>
         </div>
-
     </div>
+
     <script src="src/main.js"></script>
     <script src="src/import-export.js"></script>
 </body>
