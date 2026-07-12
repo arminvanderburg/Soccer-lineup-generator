@@ -172,6 +172,9 @@ body {
     padding: 0 10px;
     box-sizing: border-box;
     font-size: 2vmin;
+    resize: none; 
+    white-space: pre-wrap; 
+    word-wrap: break-word;
 }
 
 .export-button-container {
