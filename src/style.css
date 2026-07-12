@@ -96,18 +96,6 @@ body {
     line-height: 9vmin;
 }
 
-.gk { left: 50%; top: 90%; }
-.lb { left: 15%; top: 70%; }
-.lcb { left: 38%; top: 73%; }
-.rcb { left: 62%; top: 73%; }
-.rb { left: 85%; top: 70%; }
-.lcm { left: 25%; top: 48%; }
-.cm { left: 50%; top: 52%; }
-.rcm { left: 75%; top: 48%; }
-.lw { left: 20%; top: 22%; }
-.st { left: 50%; top: 18%; }
-.rw { left: 80%; top: 22%; }
-
 .position::before {
     pointer-events: none;
 }
