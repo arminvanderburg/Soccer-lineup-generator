@@ -1,6 +1,7 @@
 # Soccer Lineup Generator
 
 A super simple and lightweight web application to create, manage, and share soccer formations.
+*I originally made this for the actual coach of a small soccer team, but I made it public so everybody can use it.*
 
 ## Features
 * **Lightweight:** The entire application is under 1MB and loads instantly.
