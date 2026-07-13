@@ -17,7 +17,7 @@ body {
     gap: 5vmin;
     background: white;
     padding: 4vmin;
-    border-radius: 12px;
+    border-radius: 1vh;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     max-width: 95vw;
 }
@@ -27,7 +27,7 @@ body {
     height: 75vmin;
     background-color: #2e7d32;
     border: 0.5vmin solid white;
-    border-radius: 20px;
+    border-radius: 2vh;
     position: relative;
     box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
     background-image: url('../soccerfield.png');
