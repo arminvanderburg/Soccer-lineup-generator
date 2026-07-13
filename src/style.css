@@ -185,3 +185,21 @@ body {
     margin-top: 20px;
     margin-bottom: auto;
 }
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
